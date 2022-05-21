@@ -7,12 +7,26 @@ class PerguntaApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final perguntas = [
+      'Qual é a sua cor favorita?',
+      'Qual é o seu animal favorito?',
+    ];
+
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Perguntas'),
         ),
-        body: const Text('Olá flutter!'),
+        body: Column(
+          children: <Widget>[
+            Text(perguntas[0]),
+            const ElevatedButton(
+              child: Text('Resposta 1'),
+              onPressed: null,
+            )
+          ]
+        )
       )
     );
   }
