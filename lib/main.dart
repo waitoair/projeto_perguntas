@@ -30,6 +30,15 @@ class _PerguntaAppState extends State<PerguntaApp> {
       },
     ];
 
+    List<String> respostas = perguntas[_perguntaSelecionada].cast()['respostas'];
+    List<Widget> widgets = respostas
+      .map((t) => Resposta(t, _responder))
+      .toList();
+
+    for (String textoResp in respostas) {
+      widgets.add(Resposta(textoResp, _responder));
+    }
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -38,9 +47,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
         body: Column(
           children: <Widget>[
             Questao(perguntas[_perguntaSelecionada]['texto'].toString()),
-            Resposta('Resposta 1', _responder),
-            Resposta('Resposta 2', _responder),
-            Resposta('Resposta 3', _responder),
+            ...widgets, //esse operador (...) vai fazer com que todos os elementos da lista sejam adicionados nessa outra lista
           ]
         )
       )

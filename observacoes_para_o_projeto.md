@@ -6,3 +6,5 @@ void Function() funcaoQueRetornaUmaOutraFuncao() {
     print('Pergunta respondida!');
   };
 }
+
+<!-- ...respostas, "esse operador (...) vai fazer com que todos os elementos da lista sejam adicionados nessa outra lista" - palavras do prof -->
