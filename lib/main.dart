@@ -53,15 +53,18 @@ class _PerguntaAppState extends State<PerguntaApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 120, 226, 173),
           title: const Text('Perguntas'),
         ),
-        body: temPerguntaSelecionada
+        body: Container(
+          decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/images/background-flutter-project.png'), fit: BoxFit.cover)),
+          child: temPerguntaSelecionada
           ? Questionario(
               perguntas: _perguntas,
               perguntaSelecionada: _perguntaSelecionada,
               quandoResponder: _responder,
-            )
-          : Resultado(),
+            ) : Resultado(),
+        )
       )
     );
   }

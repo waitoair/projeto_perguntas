@@ -5,6 +5,8 @@ class Questao extends StatelessWidget {
 
   Questao(this.texto);
 
+  get blue => null;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,7 +14,7 @@ class Questao extends StatelessWidget {
       margin: const EdgeInsets.all(10),
       child: Text(
           texto,
-          style: const TextStyle(fontSize: 28),
+          style: const TextStyle(fontSize: 30, color: Color.fromARGB(255, 120, 0, 56)),
           textAlign: TextAlign.center,
         ),
     );
