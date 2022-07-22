@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 
 class Resposta extends StatelessWidget {
   final String texto;
-
   final void Function() quandoSelecionado;
 
-  Resposta(this.texto, this.quandoSelecionado, {Key? key}) : super(key: key);
+  Resposta(
+    this.texto,
+    this.quandoSelecionado,
+    {Key? key}
+  ) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -7,6 +7,7 @@ main() => runApp(const PerguntaApp());
 class _PerguntaAppState extends State<PerguntaApp> {
   var _perguntaSelecionada = 0;
   var _pontuacaoTotal = 0;
+
     final _perguntas = const [
     {
       'texto': 'Qual é a sua cor favorita?',
@@ -47,6 +48,13 @@ class _PerguntaAppState extends State<PerguntaApp> {
     print(_pontuacaoTotal);
   }
 
+  void _reiniciarQuestionario() {
+    setState(() {
+      _perguntaSelecionada = 0;
+      _pontuacaoTotal = 0;
+    });
+  }
+
   bool get temPerguntaSelecionada {
     return _perguntaSelecionada < _perguntas.length;
   }
@@ -62,17 +70,22 @@ class _PerguntaAppState extends State<PerguntaApp> {
         ),
         body: Container(
           decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/images/background-flutter-project.png'),
-                  fit: BoxFit.fill,
-              )
+            image: DecorationImage(
+              image: AssetImage(
+                'assets/images/background-flutter-project.png'
+              ),
+            fit: BoxFit.fill,
+            )
           ),
           child: temPerguntaSelecionada
           ? Questionario(
-              perguntas: _perguntas,
-              perguntaSelecionada: _perguntaSelecionada,
-              quandoResponder: _responder,
-            ) : Resultado(),
+            perguntas: _perguntas,
+            perguntaSelecionada: _perguntaSelecionada,
+            quandoResponder: _responder,
+            ) : Resultado(
+              _pontuacaoTotal,
+              _reiniciarQuestionario
+          ),
         )
       )
     );
